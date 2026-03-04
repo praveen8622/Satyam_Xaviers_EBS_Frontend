@@ -8,7 +8,7 @@ export const ProtectedRoute: React.FC = () => {
     const { _hasHydrated: permsHydrated } = usePermissionsStore();
 
     if (!authHydrated || !permsHydrated) {
-        return null; // or a loading spinner
+        return null;
     }
 
     if (!isAuthenticated) {
