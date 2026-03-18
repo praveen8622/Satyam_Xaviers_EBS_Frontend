@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuthStore } from '../store/useAuthStore';
 
 
-const ENV_API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001/';
+const ENV_API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001/'|| 'http://sxebsbackend.up.railway.app/';
 
 export const api = axios.create({
     baseURL: ENV_API_URL,
