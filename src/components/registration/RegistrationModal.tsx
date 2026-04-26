@@ -754,23 +754,37 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                             setError(null);
 
                                             const registrationData = {
-                                                userAccount: {
+                                                user_in: {
                                                     email: formData.email,
                                                     phone: formData.phone,
                                                     password: formData.password
                                                 },
-                                                parentProfile: {
-                                                    firstName: formData.firstName,
-                                                    lastName: formData.lastName,
-                                                    middleName: formData.middleName,
+                                                parent_in: {
+                                                    first_name: formData.firstName,
+                                                    last_name: formData.lastName,
+                                                    middle_name: formData.middleName,
                                                     occupation: formData.occupation,
-                                                    nationalId: formData.nationalId,
-                                                    address: formData.address,
+                                                    national_id: formData.nationalId,
+                                                    address_line: formData.address,
                                                     city: formData.city,
                                                     state: formData.state,
                                                     pincode: formData.pincode
                                                 },
-                                                students: formData.students
+                                                students_in: formData.students.map(student => ({
+                                                    first_name: student.firstName,
+                                                    last_name: student.lastName,
+                                                    middle_name: student.middleName,
+                                                    dob: student.dob,
+                                                    gender: student.gender,
+                                                    blood_group: student.bloodGroup,
+                                                    admission_date: student.admissionDate,
+                                                    class_id: Number(student.grade),
+                                                    relationship_type: student.relationship,
+                                                    is_primary_contact: student.isPrimary,
+                                                    city: student.city,
+                                                    state: student.state,
+                                                    pincode: student.pincode
+                                                }))
                                             };
 
                                             await peopleService.registerParentStudent(registrationData);
